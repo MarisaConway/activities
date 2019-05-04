@@ -1,6 +1,5 @@
 const express = require('express'),
 bp = require('body-parser'),
-cors = require('cors'),
 path = require('path'),
 DB_NAME = "activities",
 port = 8000,
@@ -8,7 +7,6 @@ app = express(); //this does all the things
 
 
 app.use(bp.json());
-app.use(cors());   //these are all the things that we will be using
 app.use(express.static(path.join(__dirname, './client/build')))// tells where our static folder is make sure to 
 // npm run build after putting this in
 

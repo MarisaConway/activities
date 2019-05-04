@@ -24,7 +24,7 @@ class DashBoard extends Component {
     }
 
     componentDidMount = () => {
-        axios.get("http://localhost:8000/activities")
+        axios.get("/activities")
             .then(res => {
                 this.setState({activities: res.data.activities}, () => {
                     this.rateThings();
@@ -36,6 +36,9 @@ class DashBoard extends Component {
 
     rateThings = () => {
         let activities = [...this.state.activities];
+        setTimeout(() => {
+            console.log("hello", activities);
+        }, 1000 )
         for(let i in activities) {
             if(activities[i].reviews.length > 0){
                 let sum = 0;
@@ -44,7 +47,7 @@ class DashBoard extends Component {
                 }
                 activities[i].avgRating = sum / activities[i].reviews.length;
             } else {
-                activities[i].avgRating = 0;
+                activities[i].avgRating = "No reviews";
             }
         }
         activities = bubbleSort(activities, "avgRating");

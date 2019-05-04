@@ -16,7 +16,7 @@ class EditActivity extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`http://localhost:8000/activities/${this.props.match.params._id}`)
+        axios.get(`/activities/${this.props.match.params._id}`)
             .then(res => {
                 this.setState({activity: res.data.activity});
                 // document.getElementById("select").value = this.res.data.activity.units;
@@ -40,7 +40,7 @@ class EditActivity extends Component {
     update = (e) => {
         e.preventDefault();
         console.log(this.state);
-        axios.put(`http://localhost:8000/activities/${this.props.match.params._id}`, 
+        axios.put(`/activities/${this.props.match.params._id}`, 
         this.state.activity)
             .then(res => {
                 if(res.data.errors){

@@ -5,6 +5,8 @@ import { Link, BrowserRouter, Route } from 'react-router-dom';
 import DashBoard from './components/DashBoard';
 import ActivityForm from './components/ActivityForm';
 import EditActivity from './components/EditActivity';
+import ReviewActivity from './components/ReviewActivity';
+
 
 
 class App extends Component {
@@ -20,6 +22,8 @@ class App extends Component {
           <Route exact path="/" component={DashBoard} />
           <Route path="/activity/new" component={ActivityForm} />
           <Route path="/activity/:_id/edit" component={EditActivity} />
+          <Route path="/activity/:_id/review" component={ReviewActivity} />
+
         </BrowserRouter>
       </div>
     );
